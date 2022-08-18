@@ -11,10 +11,61 @@
    
 
    <script>
-    d3.select("body").append("p").text("Hello World!");
+   //  d3.select("body").append("p").text("Hello World!");
+   var svg = d3.select("body").append("svg")
+      .attr("width", 960)
+      .attr("height", 600);
+
+
+
+
+      var tickDuration = 500;
+    
+    var top_n = 12;
+    var height = 600;
+    var width = 960;
+    
+    const margin = {
+      top: 80,
+      right: 0,
+      bottom: 5,
+      left: 0
+    };
+  
+    let barPadding = (height-(margin.bottom+margin.top))/(top_n*5);
+      
+    let title = svg.append('text')
+     .attr('class', 'title')
+     .attr('y', 24)
+     .html('18 years of Interbrand’s Top Global Brands');
+  
+    let subTitle = svg.append("text")
+     .attr("class", "subTitle")
+     .attr("y", 55)
+     .html("Brand value, $m");
+   
+    let caption = svg.append('text')
+     .attr('class', 'caption')
+     .attr('x', width)
+     .attr('y', height-5)
+     .style('text-anchor', 'end')
+     .html('Source: Interbrand');
+
+     let year = 2000;
+   
+    var data;
+   fetch('https://jsonplaceholder.typicode.com/todos/1')
+  .then(response => response.json())
+  .then(json => data=json)
+  .then(() => console.log(data))
+   .then(function(json){
+      
+
+      
+   });
    </script>
  
+   
 
-
-</body>
+   </body>
 </html>
